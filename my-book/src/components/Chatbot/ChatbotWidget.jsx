@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ChatbotWidget.css';
 
-const ChatbotWidget = ({ apiUrl = 'http://localhost:8000' }) => {
+const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
@@ -44,7 +44,7 @@ const ChatbotWidget = ({ apiUrl = 'http://localhost:8000' }) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${apiUrl}/chat`, {
+      const response = await fetch(`/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
