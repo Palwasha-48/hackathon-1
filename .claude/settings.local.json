@@ -18,7 +18,8 @@
       "Bash(curl http://localhost:8000/health)",
       "Bash(curl http://localhost:8000/)",
       "Bash(npm run build)",
-      "Bash(npx docusaurus build)"
+      "Bash(npx docusaurus build)",
+      "Bash(cmd /c \"dir /s\")"
     ],
     "deny": [],
     "ask": []

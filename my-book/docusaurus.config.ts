@@ -1,29 +1,20 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics',
-  tagline: 'Comprehensive Guide to Modern Robotics Technologies',
-  favicon: 'img/favicon.ico',
-
-  future: {
-    v4: true,
-  },
-
-  url: 'https://vercel.com/palwashas-projects-fb8f707a/hackathon-1-z2zd',
+  tagline: 'Comprehensive Guide to Modern Robotics',
+  
+  // ⚡ Use your live deployed Vercel domain here
+  url: 'https://hackathon-1-z2zd-3zeximv8f-palwashas-projects-fb8f707a.vercel.app', 
   baseUrl: '/',
 
-  organizationName: 'Palwasha-48',
-  projectName: 'hackathon-1',
-
   onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
-  // ❌ REMOVE THIS — because it's causing duplicate classic theme error
-  // themes: ['@docusaurus/theme-classic'],
+  favicon: 'img/favicon.ico',
 
+  // Only one plugins array
   plugins: [
     [
       '@docusaurus/plugin-client-redirects',
@@ -32,72 +23,38 @@ const config: Config = {
       },
     ],
   ],
-
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ur'],
-    localeConfigs: {
-      en: {
-        label: 'English',
-      },
-      ur: {
-        label: 'Urdu',
-        direction: 'rtl',
-      },
-    },
-  },
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl: 'https://github.com/Palwasha-1/hackathon-1/edit/main/',
         },
         blog: {
           showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
+          editUrl: 'https://github.com/Palwasha-48/hackathon-1/edit/main/blog/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
-      } satisfies Preset.Options,
-    ],
-  ],
-
-  plugins: [
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        fromExtensions: ['html'],
       },
     ],
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
-    colorMode: {
-      respectPrefersColorScheme: true,
-    },
     navbar: {
-      title: 'Physical AI & Humanoid Robotics',
+      title: 'Physical AI',
       logo: {
-        alt: 'Physical AI & Humanoid Robotics Logo',
+        alt: 'Site Logo',
         src: 'img/logo.svg',
       },
       items: [
+        { to: '/docs/intro', label: 'Docs', position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Book Content',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/Palwasha-48',
+          href: 'https://github.com/Palwasha-48/hackathon-1',
           label: 'GitHub',
           position: 'right',
         },
@@ -107,39 +64,32 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Book Content',
-          items: [
-            {label: 'Introduction', to: '/docs/course-introduction/'},
-            {label: 'Module 1: ROS2 Basics', to: '/docs/module-1-ros2-basics/'},
-            {label: 'Module 2: Digital Twin Technologies', to: '/docs/module-2-digital-twin/'},
-            {label: 'Module 3: Isaac Sim', to: '/docs/module-3-isaac-sim/'},
-            {label: 'Module 4: VLA Systems', to: '/docs/module-4-vla-systems/'},
-          ],
+          title: 'Docs',
+          items: [{ label: 'Intro', to: '/docs/intro' }],
         },
         {
-          title: 'Resources',
+          title: 'Community',
           items: [
-            {label: 'Robotics Stack Exchange', href: 'https://robotics.stackexchange.com/'},
-            {label: 'ROS Community', href: 'https://discourse.ros.org/'},
-            {label: 'GitHub Profile', href: 'https://github.com/Palwasha-48'},
+            { label: 'Discord', href: 'https://discord.gg/your-link' },
+            { label: 'Twitter', href: 'https://twitter.com/your-link' },
           ],
         },
         {
           title: 'More',
           items: [
-            {label: 'Blog', to: '/blog'},
-            {label: 'GitHub', href: 'https://github.com/Palwasha-48/hackathon-1'},
+            { label: 'Blog', to: '/blog' },
+            { label: 'GitHub', href: 'https://github.com/your-username/your-repo' },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Book. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Palwashey. Built with Docusaurus.`,
     },
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-  } satisfies Preset.ThemeConfig,
+  },
 };
 
 export default config;
-
