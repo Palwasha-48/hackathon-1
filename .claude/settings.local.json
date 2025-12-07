@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch --all --prune)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/create-new-feature.ps1\" -Json -Number 1 -ShortName \"book-content\" \"Goal: Define the exact content that the book will contain. -- What to Build: A complete educational book titled Physical AI & Humanoid Robotics with the following elements: -- Full Book Introduction, covering: What is Physical AI, What are Humanoid Robots, Why these technologies matter, What the reader will learn,How the modules are structured -- 4 Learning Modules Each module contains 3 chapters, Each module ends with 1 simple quiz, Difficulty increases from Basic  Intermediate  Advanced -- Content Expectations Explanations must be simple and beginner-friendly, Technical terms must be explained clearly, Real-world examples and practical insights added where helpful, Visual descriptions allowed (e.g., clean modern font, soft blue section headings) -- Audience: Beginners, students, and anyone curious about robotics or AI. -- Outcome: A fully structured, ready-to-write book skeleton and content path.\")",
+      "Bash(mkdir -p specs/001-book-content)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/setup-plan.ps1\" -Json)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/update-agent-context.ps1\" -AgentType claude)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/check-prerequisites.ps1\" -Json)",
+      "Bash(dir package.json)",
+      "Bash(dir node_modules)",
+      "Bash(npx docusaurus start)",
+      "Bash(dir docs /s)",
+      "Bash(dir docs)",
+      "Bash(dir docs /b /s)",
+      "Bash(dir course-introduction module-1-ros2-basics module-2-digital-twin module-3-isaac-sim module-4-vla-systems SUMMARY.md)",
+      "Bash(move course-introduction docscourse-introduction)",
+      "Bash(move module-1-ros2-basics docsmodule-1-ros2-basics)",
+      "Bash(move module-2-digital-twin docsmodule-2-digital-twin)",
+      "Bash(move module-3-isaac-sim docsmodule-3-isaac-sim)",
+      "Bash(move module-4-vla-systems docsmodule-4-vla-systems)",
+      "Bash(ren course-introduction docscourse-introduction)",
+      "Bash(dir static)",
+      "Bash(dir staticimg)",
+      "Bash(dir /b)",
+      "Bash(dir)",
+      "Bash(dir /s /b)",
+      "Bash(dir /s)",
+      "SlashCommand(/sp.phr Update hackathon requirements alignment)",
+      "Bash(git config user.name)",
+      "Bash(git config user.email)",
+      "Bash(git config --global user.name \"Claude Sonnet 4.5\")",
+      "Bash(git config --global user.email \"noreply@anthropic.com\")",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks)",
+      "Bash(mkdir -p chat-bot/backend chat-bot/frontend)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
