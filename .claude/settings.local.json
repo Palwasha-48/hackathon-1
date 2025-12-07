@@ -16,7 +16,9 @@
       "Bash(curl -X POST http://localhost:8000/chat -H \"Content-Type: application/json\" -d \"{\"\"messages\"\": [{\"\"role\"\": \"\"user\"\", \"\"content\"\": \"\"what is ROS2?\"\"}]}\")",
       "Bash(curl -X POST http://localhost:8000/chat -H \"Content-Type: application/json\" -d \"{\"\"messages\"\": [{\"\"role\"\": \"\"user\"\", \"\"content\"\": \"\"introduction to digital twins\"\"}]}\")",
       "Bash(curl http://localhost:8000/health)",
-      "Bash(curl http://localhost:8000/)"
+      "Bash(curl http://localhost:8000/)",
+      "Bash(npm run build)",
+      "Bash(npx docusaurus build)"
     ],
     "deny": [],
     "ask": []

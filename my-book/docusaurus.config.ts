@@ -13,11 +13,11 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://palwasha-48.github.io',
-  baseUrl: '/h-3/',
+  url: 'https://vercel.com/palwashas-projects-fb8f707a/hackathon-1-z2zd',
+  baseUrl: '/',
 
   organizationName: 'Palwasha-48',
-  projectName: 'h-3',
+  projectName: 'hackathon-1',
 
   onBrokenLinks: 'throw',
 
@@ -128,7 +128,7 @@ const config: Config = {
           title: 'More',
           items: [
             {label: 'Blog', to: '/blog'},
-            {label: 'GitHub', href: 'https://github.com/your-org/physical-ai-book'},
+            {label: 'GitHub', href: 'https://github.com/Palwasha-48/hackathon-1'},
           ],
         },
       ],
@@ -142,3 +142,4 @@ const config: Config = {
 };
 
 export default config;
+
