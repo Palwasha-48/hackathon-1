@@ -7,28 +7,23 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics',
   tagline: 'Comprehensive Guide to Modern Robotics Technologies',
-  favicon: 'img/favicon.ico', // Using the existing favicon
+  favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
   url: 'https://palwasha-48.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/h-3/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Palwasha-48', // Your GitHub username
-  projectName: 'h-3', // Your repository name
+  organizationName: 'Palwasha-48',
+  projectName: 'h-3',
 
   onBrokenLinks: 'throw',
 
-  // Environment variables that will be available to the client
-  themes: ['@docusaurus/theme-classic'],
+  // ❌ REMOVE THIS — because it's causing duplicate classic theme error
+  // themes: ['@docusaurus/theme-classic'],
+
   plugins: [
     [
       '@docusaurus/plugin-client-redirects',
@@ -38,19 +33,16 @@ const config: Config = {
     ],
   ],
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ur'], // English and Urdu for translation features
+    locales: ['en', 'ur'],
     localeConfigs: {
       en: {
         label: 'English',
       },
       ur: {
         label: 'Urdu',
-        direction: 'rtl', // Right-to-left for Urdu
+        direction: 'rtl',
       },
     },
   },
@@ -61,7 +53,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Remove the edit URL to remove "edit this page" links
         },
         blog: {
           showReadingTime: true,
@@ -69,7 +60,6 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Remove the edit URL to remove "edit this page" links
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -79,7 +69,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
@@ -88,7 +77,7 @@ const config: Config = {
       title: 'Physical AI & Humanoid Robotics',
       logo: {
         alt: 'Physical AI & Humanoid Robotics Logo',
-        src: 'img/logo.svg', // Using the existing Docusaurus logo
+        src: 'img/logo.svg',
       },
       items: [
         {
@@ -99,7 +88,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/Palwasha-48', // Your GitHub repository
+          href: 'https://github.com/Palwasha-48',
           label: 'GitHub',
           position: 'right',
         },
@@ -111,56 +100,26 @@ const config: Config = {
         {
           title: 'Book Content',
           items: [
-            {
-              label: 'Introduction',
-              to: '/docs/course-introduction/',
-            },
-            {
-              label: 'Module 1: ROS2 Basics',
-              to: '/docs/module-1-ros2-basics/',
-            },
-            {
-              label: 'Module 2: Digital Twin Technologies',
-              to: '/docs/module-2-digital-twin/',
-            },
-            {
-              label: 'Module 3: Isaac Sim',
-              to: '/docs/module-3-isaac-sim/',
-            },
-            {
-              label: 'Module 4: VLA Systems',
-              to: '/docs/module-4-vla-systems/',
-            },
+            {label: 'Introduction', to: '/docs/course-introduction/'},
+            {label: 'Module 1: ROS2 Basics', to: '/docs/module-1-ros2-basics/'},
+            {label: 'Module 2: Digital Twin Technologies', to: '/docs/module-2-digital-twin/'},
+            {label: 'Module 3: Isaac Sim', to: '/docs/module-3-isaac-sim/'},
+            {label: 'Module 4: VLA Systems', to: '/docs/module-4-vla-systems/'},
           ],
         },
         {
           title: 'Resources',
           items: [
-            {
-              label: 'Robotics Stack Exchange',
-              href: 'https://robotics.stackexchange.com/',
-            },
-            {
-              label: 'ROS Community',
-              href: 'https://discourse.ros.org/',
-            },
-            {
-              label: 'GitHub Profile',
-              href: 'https://github.com/Palwasha-48',
-            },
+            {label: 'Robotics Stack Exchange', href: 'https://robotics.stackexchange.com/'},
+            {label: 'ROS Community', href: 'https://discourse.ros.org/'},
+            {label: 'GitHub Profile', href: 'https://github.com/Palwasha-48'},
           ],
         },
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/your-org/physical-ai-book',
-            },
+            {label: 'Blog', to: '/blog'},
+            {label: 'GitHub', href: 'https://github.com/your-org/physical-ai-book'},
           ],
         },
       ],
