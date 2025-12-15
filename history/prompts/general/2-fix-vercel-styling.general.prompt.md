@@ -1,0 +1,1 @@
+I'm having trouble with my Vercel deployment's styling. It looks like the CSS isn't loading correctly. I've tried a few things but can't seem to figure it out. Can you help me diagnose and fix this issue? I've provided the file structure of my project. I believe the issue might be related to the `vercel.json` or `docusaurus.config.ts` files in the `my-book` directory.
