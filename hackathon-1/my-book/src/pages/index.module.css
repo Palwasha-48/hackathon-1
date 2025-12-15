@@ -1,0 +1,106 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /* Light Mode Default (Premium Clean Tech) */
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  color: #1a202c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+/* Dark Mode Override (Premium Cyberpunk) */
+:global([data-theme="dark"]) .heroBanner {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  color: #ffffff !important;
+}
+
+/* Hero Title - Light Mode */
+.heroBanner :global(.hero__title) {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, #2c3e50, #4ca1af);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #2c3e50; /* Fallback */
+}
+
+/* Hero Title - Dark Mode */
+:global([data-theme="dark"]) .heroBanner :global(.hero__title) {
+  color: #ffffff !important;
+  text-shadow: 0 4px 20px rgba(0, 243, 255, 0.5);
+  background: linear-gradient(to right, #fff, #00f3ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle - Light Mode */
+.heroBanner :global(.hero__subtitle) {
+  font-size: 1.5rem;
+  color: #4a5568;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+/* Subtitle - Dark Mode */
+:global([data-theme="dark"]) .heroBanner :global(.hero__subtitle) {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Enhance the default button */
+.heroBanner :global(.button) {
+  background: linear-gradient(90deg, #00f3ff, #7000ff);
+  border: none;
+  border-radius: 50px;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(112, 0, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.heroBanner :global(.button):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 243, 255, 0.6);
+  text-decoration: none;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 6rem 1.5rem;
+    min-height: auto;
+  }
+
+  .heroBanner :global(.hero__title) {
+    font-size: 2.5rem;
+  }
+
+  .heroBanner :global(.hero__subtitle) {
+    font-size: 1.2rem;
+  }
+}

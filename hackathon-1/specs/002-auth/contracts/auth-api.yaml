@@ -1,0 +1,129 @@
+# API Contracts: Authentication with Personalization Fields
+
+## User Registration
+**Endpoint**: `POST /auth/register`
+
+### Request
+```json
+{
+  "email": "user@example.com",
+  "password": "securePassword123",
+  "name": "John Doe",
+  "software_background": "Python",
+  "hardware_background": "Simulation Only"
+}
+```
+
+### Response (200 OK)
+```json
+{
+  "id": 1,
+  "email": "user@example.com",
+  "name": "John Doe",
+  "software_background": "Python",
+  "hardware_background": "Simulation Only"
+}
+```
+
+### Error Responses
+- 400 Bad Request: Invalid input data
+- 409 Conflict: Email already exists
+
+## User Login
+**Endpoint**: `POST /auth/login`
+
+### Request
+```json
+{
+  "email": "user@example.com",
+  "password": "securePassword123"
+}
+```
+
+### Response (200 OK)
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "bearer"
+}
+```
+
+### Error Responses
+- 401 Unauthorized: Invalid credentials
+- 422 Unprocessable Entity: Invalid input format
+
+## Get Current User
+**Endpoint**: `GET /auth/me`
+**Authentication**: Bearer token required
+
+### Response (200 OK)
+```json
+{
+  "id": 1,
+  "email": "user@example.com",
+  "name": "John Doe",
+  "software_background": "Python",
+  "hardware_background": "Simulation Only"
+}
+```
+
+### Error Responses
+- 401 Unauthorized: Invalid or expired token
+
+## Update User Profile
+**Endpoint**: `PUT /auth/profile`
+**Authentication**: Bearer token required
+
+### Request
+```json
+{
+  "name": "John Doe",
+  "software_background": "ROS2 Expert",
+  "hardware_background": "Full Robot"
+}
+```
+
+### Response (200 OK)
+```json
+{
+  "id": 1,
+  "email": "user@example.com",
+  "name": "John Doe",
+  "software_background": "ROS2 Expert",
+  "hardware_background": "Full Robot"
+}
+```
+
+### Error Responses
+- 401 Unauthorized: Invalid or expired token
+- 400 Bad Request: Invalid input data
+
+## Refresh Token
+**Endpoint**: `POST /auth/refresh`
+**Authentication**: Bearer refresh token in header
+
+### Response (200 OK)
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "bearer"
+}
+```
+
+### Error Responses
+- 401 Unauthorized: Invalid or expired refresh token
+
+## Logout
+**Endpoint**: `POST /auth/logout`
+**Authentication**: Bearer token required
+
+### Response (200 OK)
+```json
+{
+  "message": "Successfully logged out"
+}
+```
+
+### Error Responses
+- 401 Unauthorized: Invalid token
