@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./ChatbotWidget.css";
 
 // Define the backend API base URL
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "https://palwasha-49-hackathon-1.hf.space";
 
 // Simple markdown parser function
 const parseMarkdown = (text) => {
