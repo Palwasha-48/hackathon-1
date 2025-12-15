@@ -53,7 +53,7 @@ const config: Config = {
       items: [
         { to: "/docs/course-introduction", label: "Docs", position: "left" },
         { to: "/blog", label: "Blog", position: "left" },
-        { to: "/auth/sign-in", label: "Sign In", position: "right" },
+        // { to: "/auth/sign-in", label: "Sign In", position: "right" },
         {
           href: "https://github.com/Palwasha-48/hackathon-1",
           label: "GitHub",
