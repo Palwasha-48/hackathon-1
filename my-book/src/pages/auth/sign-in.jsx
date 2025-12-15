@@ -1,44 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const SignInPage = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Sign in attempt:', formData);
+    console.log("Sign in attempt:", formData);
 
     try {
       // In a real implementation, this would call the backend API
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Login successful:', data);
+        console.log("Login successful:", data);
         // Store token and redirect user
-        localStorage.setItem('token', data.token);
-        window.location.href = '/';
+        localStorage.setItem("token", data.token);
+        window.location.href = "/";
       } else {
-        console.error('Login failed');
+        console.error("Login failed");
       }
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error("Error during login:", error);
     }
   };
 
@@ -46,11 +46,16 @@ const SignInPage = () => {
     <div className="auth-page">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-md mx-auto">
-          <h1 className="text-3xl font-bold text-center mb-8 text-gray-900">Sign In to Your Account</h1>
+          <h1 className="text-3xl font-bold text-center mb-8 text-gray-900">
+            Sign In to Your Account
+          </h1>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email Address
               </label>
               <input
@@ -66,7 +71,10 @@ const SignInPage = () => {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Password
               </label>
               <input
@@ -89,13 +97,19 @@ const SignInPage = () => {
                   type="checkbox"
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                <label
+                  htmlFor="remember-me"
+                  className="ml-2 block text-sm text-gray-900"
+                >
                   Remember me
                 </label>
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+                <a
+                  href="#"
+                  className="font-medium text-blue-600 hover:text-blue-500"
+                >
                   Forgot your password?
                 </a>
               </div>
@@ -110,15 +124,6 @@ const SignInPage = () => {
               </button>
             </div>
           </form>
-
-          <div className="mt-6 text-center text-sm text-gray-600">
-            <p>
-              Don't have an account?{' '}
-              <a href="/auth/sign-up" className="font-medium text-blue-600 hover:text-blue-500">
-                Sign up
-              </a>
-            </p>
-          </div>
         </div>
       </div>
     </div>
